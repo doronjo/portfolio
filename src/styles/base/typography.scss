@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Sacramento&display=swap');
+
+@mixin font-sacramento($size:14px,$color:#fff){
+    font-family: 'Sacramento', cursive;
+    color:$color;
+    font-size: $size;
+}
+
+@mixin font-rajdhani($size:14px , $color:#fff){
+    font-family: 'Rajdhani', sans-serif;
+    color:$color;
+    font-size: $size;
+}
