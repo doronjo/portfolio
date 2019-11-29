@@ -2,11 +2,30 @@
     <!--div class="dj-tile-spinner" [ngClass]="{'spinner-off': isLoaded}">
         <div class="spinner"></div>
     </div-->
-    <div class="gallery-item-img"></div>
-    <div class="gallery-item-info">
-            <h3>test</h3>
-            <p>text text text</p>
-            <i class="icon ion-logo-instagram instegram"></i>
-            <i class="icon ion-logo-facebook facebook"></i>
+    <img class="gallery-item-img" src="assets/4.jpg" />
+    <div class="gallery-item-info" (click)="openItemGallery()">
+        <h3>test</h3>
+        <p>text text text</p>
+        <i class="icon ion-logo-instagram instegram"></i>
+        <i class="icon ion-logo-facebook facebook"></i>
     </div>
 </div>
+<nz-modal [(nzVisible)]="isVisible" [nzWidth]="800"  [nzTitle]="modalTitle" [nzWrapClassName]="'app-gallery-modal'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="closeItemGallery()">
+        <ng-template #modalTitle>
+            Custom Modal Title
+        </ng-template>
+        <p>Content one</p>
+        <ng-template #modalContent>
+            <div class="modal-gallery">
+                <nz-carousel [nzEffect]="effect" *ngIf="isGalleryVisible">
+                        <div nz-carousel-content *ngFor="let index of array">
+                            <h3>{{ index }}</h3>
+                        </div>
+                </nz-carousel>
+            </div>
+        </ng-template>
+        <ng-template #modalFooter>
+            <span>Modal Footer: </span>
+            <button nz-button nzType="default" (click)="closeItemGallery()">Custom Callback</button>
+        </ng-template>
+    </nz-modal>

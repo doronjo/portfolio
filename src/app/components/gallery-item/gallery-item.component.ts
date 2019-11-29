@@ -7,5 +7,21 @@ import { Component } from "@angular/core";
 })
 export class GalleryItemComponent{
 
+    public isVisible = false;
+    public isGalleryVisible = false;
+    public array = [1, 2, 3, 4];
+    public effect = 'scrollx';
     constructor(){}
+
+    public openItemGallery(){
+        this.isVisible= true;
+        setTimeout(()=>{ 
+            this.isGalleryVisible = true;
+            console.log(this.isGalleryVisible);
+       }, 2000);
+    }
+    public closeItemGallery(){
+        this.isVisible= false;
+        this.isGalleryVisible = false;
+    }
 }
