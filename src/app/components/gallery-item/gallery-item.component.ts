@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { ImageLoaderService } from "../../common/services/image-loader.servcies";
 
 @Component({
     selector:"app-gallery-item",
@@ -9,19 +10,31 @@ export class GalleryItemComponent{
 
     public isVisible = false;
     public isGalleryVisible = false;
-    public array = [1, 2, 3, 4];
+    public modalContentStyle = {height:"0"};
+    @Input() collection:any;
     public effect = 'scrollx';
-    constructor(){}
+    constructor(private _imageLoaderService: ImageLoaderService){}
 
     public openItemGallery(){
         this.isVisible= true;
-        setTimeout(()=>{ 
-            this.isGalleryVisible = true;
-            console.log(this.isGalleryVisible);
-       }, 2000);
+        this._imageLoaderService.loadImages(this.collection.gallery).subscribe((images)=>{
+            console.log("loaded.....")
+            console.log(images);
+            let modalHeight = this.calculateModalHeight(images[0]);
+            this.modalContentStyle.height = modalHeight +"px";
+            setTimeout(()=>{
+                this.isGalleryVisible = true;
+            },500)
+            
+        })
     }
     public closeItemGallery(){
         this.isVisible= false;
         this.isGalleryVisible = false;
+    }
+    private calculateModalHeight(img){
+        if(img.width > 1400){
+            return img.height*(1400/img.width);
+        }
     }
 }

@@ -2,24 +2,35 @@
     <!--div class="dj-tile-spinner" [ngClass]="{'spinner-off': isLoaded}">
         <div class="spinner"></div>
     </div-->
-    <img class="gallery-item-img" src="assets/4.jpg" />
+    <img class="gallery-item-img" src="{{collection.tizerImage}}" />
     <div class="gallery-item-info" (click)="openItemGallery()">
-        <h3>test</h3>
-        <p>text text text</p>
+        <h3>{{collection.header}}</h3>
+        <p>{{collection.decription}}</p>
         <i class="icon ion-logo-instagram instegram"></i>
         <i class="icon ion-logo-facebook facebook"></i>
     </div>
 </div>
-<nz-modal [(nzVisible)]="isVisible" [nzWidth]="800"  [nzTitle]="modalTitle" [nzWrapClassName]="'app-gallery-modal'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="closeItemGallery()">
+
+<nz-modal [(nzVisible)]="isVisible" [nzWidth]="1400"  [nzBodyStyle]="modalContentStyle" [nzTitle]="modalTitle" [nzWrapClassName]="'app-gallery-modal'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="closeItemGallery()">
         <ng-template #modalTitle>
-            Custom Modal Title
+            <div class="modal-gallery-header">
+
+                <div>
+                    <img class="thumb" src={{collection.tizerImage}}/> 
+                </div>
+                <div class="title">
+                    <h1 class="title-h">{{collection.header}}</h1>
+                    <p class="title-d">{{collection.decription}}</p>
+                </div>
+            </div>
         </ng-template>
         <p>Content one</p>
         <ng-template #modalContent>
-            <div class="modal-gallery">
+            <app-loader class="app-loader"></app-loader>
+            <div class="modal-gallery-body" [ngClass]="{'gallery-fade-in': isGalleryVisible}">
                 <nz-carousel [nzEffect]="effect" *ngIf="isGalleryVisible">
-                        <div nz-carousel-content *ngFor="let index of array">
-                            <h3>{{ index }}</h3>
+                        <div nz-carousel-content *ngFor="let imgSrc of collection.gallery">
+                            <img src="{{imgSrc}}"/>
                         </div>
                 </nz-carousel>
             </div>

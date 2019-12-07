@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subscriber } from 'rxjs/internal/Subscriber';
+import { Component, OnInit } from '@angular/core';
+import { Observable, Subscriber, from, pipe, of ,forkJoin } from 'rxjs';
+import { concatMap, take, map, mergeMap, merge, combineAll, concatAll ,timeout } from 'rxjs/operators';
+import { FormArray } from '@angular/forms';
+
+
+
 
 @Component({
   selector:'app-home',
@@ -8,25 +12,21 @@ import { Subscriber } from 'rxjs/internal/Subscriber';
   styleUrls:['./home.component.scss'],
 
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
-    public foo;
+    public collection:any;
     constructor(){
-        this.foo = new Observable(subscriber=>{
-            console.log("Hello");
-            //subscriber.next(42);
-        })
     }
 
-    public testme(){
-        
-        this.foo.subscribe(x => {
-            console.log(x);
-        });
-        this.foo.subscribe(y => {
-            console.log(y);
-        });
-    }
+    ngOnInit(){
 
+        this.collection = {
+            header:"Liora Collection",
+            decription:"this is lioras new collection",
+            tizerImage:"https://res.cloudinary.com/doronjo/image/upload/v1574975972/liorajo/4_lx3wod.jpg",
+            gallery:["https://res.cloudinary.com/doronjo/image/upload/v1575719209/liorajo/Artboard_3_2x_u6rwek.png"
+            ]
+        } 
+    }
 
 }  

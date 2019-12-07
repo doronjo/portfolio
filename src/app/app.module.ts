@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { GalleryItemComponent } from './components/gallery-item/gallery-item.component';
+import { AppCommonModule } from './common/app-common.module';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,6 +27,7 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
+    AppCommonModule,
     AppRoutingModule,
     NgZorroAntdModule,
     FormsModule,
