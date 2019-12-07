@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<nz-modal [(nzVisible)]="isVisible" [nzWidth]="1400"  [nzBodyStyle]="modalContentStyle" [nzTitle]="modalTitle" [nzWrapClassName]="'app-gallery-modal'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="closeItemGallery()">
+<nz-modal [(nzVisible)]="isVisible" [nzWidth]="1200"  [nzStyle]="{'top':'0'}" [nzBodyStyle]="modalContentStyle" [nzTitle]="modalTitle" [nzWrapClassName]="'app-gallery-modal'" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="closeItemGallery()">
         <ng-template #modalTitle>
             <div class="modal-gallery-header">
 

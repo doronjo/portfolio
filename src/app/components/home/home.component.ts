@@ -23,9 +23,8 @@ export class HomeComponent implements OnInit{
         this.collection = {
             header:"Liora Collection",
             decription:"this is lioras new collection",
-            tizerImage:"https://res.cloudinary.com/doronjo/image/upload/v1574975972/liorajo/4_lx3wod.jpg",
-            gallery:["https://res.cloudinary.com/doronjo/image/upload/v1575719209/liorajo/Artboard_3_2x_u6rwek.png"
-            ]
+            tizerImage:"http://res.cloudinary.com/doronjo/image/upload/v1575758589/liorajo/tizer1_qtzqyj.jpg",
+            gallery:["http://res.cloudinary.com/doronjo/image/upload/v1575758592/liorajo/sheet1_d3aik8.png"]
         } 
     }
 

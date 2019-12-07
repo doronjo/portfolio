@@ -33,8 +33,8 @@ export class GalleryItemComponent{
         this.isGalleryVisible = false;
     }
     private calculateModalHeight(img){
-        if(img.width > 1400){
-            return img.height*(1400/img.width);
+        if(img.width >= 1200){
+            return img.height*(1200/img.width);
         }
     }
 }

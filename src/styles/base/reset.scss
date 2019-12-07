@@ -16,10 +16,12 @@
   }
   
   .app-gallery-modal{
-
+    .app-loader{
+        height:700px;
+    }
     .modal-gallery-header{
+        padding: 13px 0;
         @include flexbox();
-        height: 55px;
         .thumb{
             width: 48px;
             height: 48px;
@@ -30,7 +32,7 @@
             padding-top: 5px;
             .title-h{
                 margin: 0;
-                @include font-sacramento(30px, #fff);
+                @include font-sacramento(23px, #fff);
             }
             .title-d{
                 margin: 0;
