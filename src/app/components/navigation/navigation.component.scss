@@ -3,29 +3,32 @@
 @import "./layout/flex";
 
 #app-nav{
+    padding-top: 70px;
     width: 100%;
-    height: 56px;
-    background: #333;
+    background:transparent;
+    position: absolute;
+    z-index: 2;
+    h1{
+        @include font-headers(30px, $font-gray);
+        margin: 0 auto;
+        text-align: center;
+    }
     nav{
         height: 100%;
         @include flexbox();
         @include align-items(center);
-        margin: 0 auto;
-        padding: 0 10px 0 30px;
-        #main-logo{ 
-            padding-right: 15px;
-            @include font-sacramento(25px, $white);
-        }
+        @include justify-content(center);
+        margin: 45px auto;
         ul{  
-            padding-left: 15px;
             margin: 0;
+            width: 434px;
             @include flexbox();
             @include align-items(stretch);
+            @include justify-content(space-between);
             list-style-type: none;
             li{
-                padding-right: 20px;
                 a{
-                    @include font-rajdhani(15px, $light-gray);
+                    @include font-paragraph-1(17px, $font-gray);
                     text-decoration: none;
                     cursor: pointer;
                     &:hover{

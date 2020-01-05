@@ -1,5 +1,47 @@
 <div id="app-home-page" class="container">
-    <app-gallery>
-        <app-gallery-item [collection]="collection"></app-gallery-item>
-    </app-gallery>
+    <div class="mood-image">
+        <img src="./assets/clinton-naik.jpg" />
+        <!--div class="fader"></div-->
+    </div>
+
+    <div class="gallery">
+        <div class="gallery-head">
+          <h2>Art Gallery</h2>
+        </div>
+        <div class="gallery-filters">
+            <ul>
+                <li><a>App</a></li>
+                <li><a>Web</a></li>
+                <li><a>Logo</a></li>
+                <li><a>Print</a></li>
+            </ul>
+        </div>
+        <div class="gallery-body">
+            <!--viox-masonry-->
+            <div viox-masonry class="grid" (layoutComplete)="layoutComplete($event)" [options]="options">
+                <div class="grid-sizer"></div>
+                <div vioxMasonryItem class="grid-item"  *ngFor="let item of collection">
+                  <div class="item-wrapper">
+                  <img src="{{item.img}}">         
+                    <div class="item-info">
+                      <h4>
+                        {{item.head}}
+                      </h4>
+                      <p>
+                        {{item.description}}
+                      </p>
+                    </div>
+                  </div>
+
+              </div>
+            <!--/viox-masonry-->
+        </div>
+    </div>
+
+    <div class="about-me">
+    <div class="info">
+            <h2 vioxAnimate [animationDelay]="'1.3s'" >Liora Joseph, Interactive Designer</h2>
+            <h3 vioxAnimate [animationDelay]="'1.4s'" >Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h3>
+            <p  vioxAnimate [animationDelay]="'1.5s'" > is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+    </div>
 </div>

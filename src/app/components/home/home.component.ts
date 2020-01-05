@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscriber, from, pipe, of ,forkJoin } from 'rxjs';
-import { concatMap, take, map, mergeMap, merge, combineAll, concatAll ,timeout } from 'rxjs/operators';
-import { FormArray } from '@angular/forms';
-
-
-
 
 @Component({
   selector:'app-home',
@@ -14,18 +8,55 @@ import { FormArray } from '@angular/forms';
 })
 export class HomeComponent implements OnInit{
 
-    public collection:any;
+    public options = {};
+    public collection =[];
     constructor(){
+
+        this.collection.push({
+            head:"Elvis Presly",
+            description:`Elvis Aaron Presley (January 8, 1935 – August 16, 1977), also known mononymously as Elvis, was an American singer and actor. Regarded as one of the most significant cultural icons of the 20th century, he is often referred to as the "King of Rock and Roll" or simply "the King".`,
+            img:"./assets/images/elvisPresley.jpg"
+        })
+        this.collection.push({
+            head:"Lana Del Rey",
+            description:`Elizabeth Woolridge Grant (born June 21, 1985), known professionally as Lana Del Rey, is an American singer and songwriter.`,
+            img:"./assets/images/del-rey.jpg"
+        })
+        this.collection.push({
+            head:"Amy Winehouse",
+            description:`Amy Jade Winehouse (14 September 1983 – 23 July 2011) was an English singer and songwriter. She was known for her deep, expressive contralto vocals and her eclectic mix of musical genres.`,
+            img:"./assets/images/amyWinehouse.jpg"
+        })
+        this.collection.push({
+            head:"Kurt Cobain",
+            description:`Kurt Donald Cobain (February 20, 1967 – April 5, 1994) was an American singer, songwriter, and musician, best known as the guitarist and frontman of the rock band Nirvana`,
+            img:"./assets/images/kurt-cobain.jpg"
+        })
+        this.collection.push({
+            head:"Madonna",
+            description:`Madonna Louise Ciccone, born August 16, 1958, is an American singer, songwriter, actress, and businesswoman`,
+            img:"./assets/images/madonna.jpg"
+        })
+        this.collection.push({
+            head:"Reut Instetute",
+            description:`Madonna Louise Ciccone, born August 16, 1958, is an American singer, songwriter, actress, and businesswoman`,
+            img:"./assets/images/reut.png"
+        })
     }
 
     ngOnInit(){
 
-        this.collection = {
-            header:"Liora Collection",
-            decription:"this is lioras new collection",
-            tizerImage:"http://res.cloudinary.com/doronjo/image/upload/v1575758589/liorajo/tizer1_qtzqyj.jpg",
-            gallery:["http://res.cloudinary.com/doronjo/image/upload/v1575758592/liorajo/sheet1_d3aik8.png"]
-        } 
+        this.options= {
+            columnWidth: '.grid-sizer',
+            itemSelector: '.grid-item',
+            //gutter:'.gutter-sizer',
+            percentPosition: true,
+            transitionDuration: '0.2s'
+          } 
     }
 
+    layoutComplete(items:any){
+        console.log("layout completed !!!");
+        console.log(items);
+      }
 }  
